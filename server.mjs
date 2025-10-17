@@ -1,5 +1,6 @@
 // Imports 
 import express from "express";
+import errorMiddleware from "./middleware/error.mjs"
 
 
 // Setups
@@ -11,15 +12,25 @@ const PORT = 3000;
 
 
 
-// Routes 
-app.get('/',(req,res)=>{
-    res.send(`Testing`)
-})
+// Routes
+app.get("/", (req, res) => {
+  res.send("Testing, Home path");
+});
 
+app.post("/", (req, res) => {
+  res.send(`Testing, Post Route`);
+});
 
+app.put("/", (req, res) => {
+  res.send("Testing, Put Route");
+});
+
+app.delete("/", (req, res) => {
+  res.send("Testing, Delete Route");
+});
 
 // Global Error Handling Middleware 
-
+app.use(errorMiddleware);
 
 //  Server Listener
 app.listen(PORT, ()=>{
