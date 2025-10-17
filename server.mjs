@@ -1,38 +1,32 @@
-// Imports 
-import express from "express";
-import errorMiddleware from "./middleware/error.mjs"
+// server.mjs
+import 'dotenv/config';
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
 
+import errorMiddleware from './middleware/error.mjs';
+import recipesRouter from './routes/recipes.mjs';
 
-// Setups
 const app = express();
-const PORT = 3000; 
+const PORT = process.env.PORT || 3000;
 
+// middlewares
+app.use(cors());
+app.use(express.json()); 
 
-// Middelwares 
+// db connect
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('✅ MongoDB connected'))
+  .catch(err => console.error('❌ MongoDB error:', err));
 
+// health check
+app.get('/', (_req, res) => res.send('Helpful Tía API running'));
 
+// mount CRUD routes
+app.use('/api/recipes', recipesRouter);
 
-// Routes
-app.get("/", (req, res) => {
-  res.send("Testing, Home path");
-});
-
-app.post("/", (req, res) => {
-  res.send(`Testing, Post Route`);
-});
-
-app.put("/", (req, res) => {
-  res.send("Testing, Put Route");
-});
-
-app.delete("/", (req, res) => {
-  res.send("Testing, Delete Route");
-});
-
-// Global Error Handling Middleware 
+// global error handler
 app.use(errorMiddleware);
 
-//  Server Listener
-app.listen(PORT, ()=>{
-    console.log(`Sever Running on Port: ${PORT}`);
-}); 
+// start
+app.listen(PORT, () => console.log(`🚀 Server on :${PORT}`));
