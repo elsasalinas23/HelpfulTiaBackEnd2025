@@ -17,7 +17,5 @@ const RecipeSchema = new mongoose.Schema({
   }
 // if both are good
   return true;
-}
-}, { timestamps: true });
-
+);
 export default mongoose.model('Recipe', RecipeSchema);
