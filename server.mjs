@@ -7,7 +7,7 @@ import cors from 'cors';
 import errorMiddleware from './middleware/error.mjs';
 import recipesRouter from './routes/recipes.mjs';
 // db connection
-import { connectDB } from './utilities/recipedatabase.mjs';
+import { connectDB } from './utilities/recipedbcon.mjs';
 await connectDB(process.env.MONGODB_URI);
 // setup
 const app = express();
