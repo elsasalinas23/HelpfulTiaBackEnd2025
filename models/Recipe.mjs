@@ -1,15 +1,15 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const RecipeSchema = new mongoose.Schema({
-  title: { type: String, required: [true, "title is required"], trim: true },
-  ingredients: {
-    type: [String],
-    required: [true, "ingredients is required"],
-    validate: {
-      validator(v) { return Array.isArray(v) && v.length > 0; },
-      message: "ingredients must be a non-empty array"
-    }
-  }
-}, { timestamps: true });
+const RecipeSchema = new mongoose.Schema(
+  {
+    title: { type: String, required: true, trim: true },
+    ingredients: {
+      type: [String],
+      required: true,
+      validate: v => Array.isArray(v) && v.length > 0,
+    },
+  },
+  { timestamps: true }
+);
 
-export default mongoose.model('Recipe', RecipeSchema);
+export default mongoose.model("Recipe", RecipeSchema);
