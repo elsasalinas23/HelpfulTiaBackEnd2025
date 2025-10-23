@@ -7,6 +7,7 @@ const router = express.Router();
 // CREATE
 router.post('/', async (req, res, next) => {
   try {
+    console.log("POST /api/recipes body:", req.body); 
     const { title, ingredients } = req.body;
     const doc = await Recipe.create({ title, ingredients });
     res.status(201).json(doc);

@@ -3,7 +3,7 @@ import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-
+import log from './middleware/log.mjs';
 import errorMiddleware from './middleware/error.mjs';
 import recipesRouter from './routes/recipes.mjs';
 // db connection
@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 3000;
 // middlewares
 app.use(cors());
 app.use(express.json()); 
+app.use(log);
 
 // health check
 app.get('/', (_req, res) => res.send('Helpful Tía API running'));
