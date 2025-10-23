@@ -39,7 +39,7 @@ helpfultiabackend2025/
 
 Clone the repo
 
-git clone https://github.com/yourusername/helpfultiabackend2025.git
+git clone https://github.com/elsasalinas23/HelpfulTiaBackEnd2025.git
 cd helpfultiabackend2025
 
 
