@@ -1,4 +1,17 @@
 📘 Helpful Tía Backend 2025 – README
+
+## 📂 Project Repositories
+
+- **Frontend (React):** 
+https://github.com/elsasalinas23/HELPFULTIAFRONTEND2025.git
+- **Backend (Express + MongoDB):**
+https://github.com/elsasalinas23/HelpfulTiaBackEnd2025.git 
+
+
+
+
+
+
 🧩 Overview
 
 The Helpful Tía Backend 2025 project is the backend portion of the Helpful Tía Recipe Builder App.
