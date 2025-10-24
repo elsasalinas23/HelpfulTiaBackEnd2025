@@ -1,7 +1,5 @@
-// routes/recipes.mjs
 import express from "express";
-import Recipe from "../models/Recipe.mjs";
-
+import Recipe from '../models/recipeM.mjs';   
 const router = express.Router();
 
 // Convert "a, b, c" → ["a","b","c"]
