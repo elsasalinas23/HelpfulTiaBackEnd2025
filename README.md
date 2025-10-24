@@ -19,7 +19,8 @@ This fulfills the course rubric for CRUD (Create Read Update Delete) operations 
 helpfultiabackend2025/
 │
 ├── middleware/
-│   └── error.mjs               # Global error handler
+│   └── error.mjs               # Global errorhandler
+    └── log.mjs                  #logs inputs
 │
 ├── models/
 │   └── Recipe.mjs              # Mongoose Schema & Model
